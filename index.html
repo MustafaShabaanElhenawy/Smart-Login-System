@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Login System - Register</title>
+  <style>
+    body {
+      background-color: #033b44;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #102e33;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px #00ffff55;
+    }
+    h2 {
+      text-align: center;
+      color: #00ffff;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 95%;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: transparent;
+      border: 1px solid #00ffff;
+      color: #fff;
+      outline: none;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background-color: transparent;
+      border: 2px solid #00ffff;
+      color: #00ffff;
+      cursor: pointer;
+    }
+
+    button:hover{
+      background-color: #17A2B8;
+      color: wheat;
+    }
+
+    p {
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+    }
+    #regMsg {
+      text-align: center;
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Smart Login System - Register</h2>
+  <input type="text" id="regName" placeholder="Enter your name" />
+  <input type="email" id="regEmail" placeholder="Enter your email" />
+  <input type="password" id="regPassword" placeholder="Enter password" />
+  <button onclick="register()">Sign Up</button>
+  <p onclick="window.location.href='login.html'">You have an account? SignIn</p>
+  <p id="regMsg"></p>
+</div>
+
+<script>
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  function register() {
+    const name = document.getElementById("regName").value.trim();
+    const email = document.getElementById("regEmail").value.trim().toLowerCase();
+    const password = document.getElementById("regPassword").value;
+
+    if (!name || !email || !password) {
+      document.getElementById("regMsg").innerText = "All fields are required!";
+      return;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+      document.getElementById("regMsg").innerText = "Invalid email format!";
+      return;
+    }
+
+    const exists = users.some(user => user.email === email);
+    if (exists) {
+      document.getElementById("regMsg").innerText = "Email already registered!";
+      return;
+    }
+
+    users.push({ name, email, password });
+    localStorage.setItem("users", JSON.stringify(users));
+    document.getElementById("regMsg").innerText = "Registered successfully!";
+    window.location.href = 'login.html';
+  }
+</script>
+
+</body>
+</html>

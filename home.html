@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Login System - Home</title>
+  <style>
+    body {
+      background-color: #033b44;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #102e33;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px #00ffff55;
+    }
+    h2 {
+      text-align: center;
+      color: #00ffff;
+      margin-bottom: 20px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background-color: transparent;
+      border: 2px solid #00ffff;
+      color: #00ffff;
+      cursor: pointer;
+    }
+
+    button:hover{
+      background-color: #17A2B8;
+      color: wheat;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2 id="welcomeMsg">Welcome</h2>
+  <button id="logoutBtn" onclick="logout()">Logout</button>
+</div>
+
+<script>
+  const currentUser = localStorage.getItem("currentUser");
+
+  if (!currentUser) {
+    window.location.href = 'login.html';
+  }
+
+  document.getElementById("welcomeMsg").innerText = `Welcome ${currentUser}`;
+
+  function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = 'login.html';
+  }
+</script>
+
+</body>
+</html>
