@@ -3,8 +3,7 @@
 A simple and elegant front-end login system built using HTML, CSS, Bootstrap, and Vanilla JavaScript.  
 Implements authentication logic with localStorage for storing user data on the browser.
 
-## Live Demo  
-https://smart-login-system-beige.vercel.app/
+---
 
 ## Features  
 - Front-end login and signup system  
@@ -12,11 +11,15 @@ https://smart-login-system-beige.vercel.app/
 - Stores user data using localStorage  
 - Responsive and user-friendly design
 
+  ---
+
 ## Technologies Used  
 - HTML  
 - CSS (Bootstrap)  
 - JavaScript  
 - localStorage
+
+  ---
 
 ## How to Run the Project  
 
