@@ -29,7 +29,7 @@ Implements authentication logic with localStorage for storing user data on the b
 
 ---
 
-Contact
+ ## Contact
 
 - GitHub: https://github.com/MustafaShabaanElhenawy  
 - LinkedIn: www.linkedin.com/in/mustafa-elhenawy-31577b292
